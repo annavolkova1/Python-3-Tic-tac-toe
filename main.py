@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # В качестве поля создаём одномерный список с числами от 1 до 9
 board = list(range(1, 10)) # using list() for supporting Python 3
 
@@ -14,6 +13,9 @@ def draw_board(board):
 
 # Функция обработки пользовательского ввода
 def take_input(player_token):
+    """Если число не от 1 до 9, а больше или меньше, то выводится это сообщение -
+    Некорректный ввод. Введите число от 1 до 9.
+    """
     valid = False
     while not valid:
         player_answer = input("Куда поставим " + player_token + "? ")
@@ -29,7 +31,7 @@ def take_input(player_token):
             else:
                 print("Эта клеточка уже занята")
         else:
-            print("Некорректный ввод. Введите число от 1 до 9 чтобы походить.")
+            print("Некорректный ввод. Введите число от 1 до 9.")
 
 
 # Функция проверки игрового поля
@@ -63,6 +65,9 @@ def main(board):
             break
     draw_board(board)
 
+def _doctests():
+    import doctest
+    doctest.testmod()
 
 # Запуск игры
 main(board)
